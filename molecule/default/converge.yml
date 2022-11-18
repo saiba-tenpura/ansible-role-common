@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: Include saiba-tenpura.common
+      include_role:
+        name: saiba-tenpura.common
