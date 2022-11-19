@@ -1,1 +1,7 @@
 ---
+common_packages:
+  - git
+  - vim
+common_user: default
+common_key_url: https://github.com/saiba-tenpura.keys
+common_default_editor: vim

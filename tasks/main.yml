@@ -1,1 +1,22 @@
 ---
+- name: Install commmon packages.
+  package:
+    name: '{{ common_packages }}'
+    state: present
+
+- name: Setup default user.
+  user:
+    name: '{{ common_user }}'
+
+- name: Setup user authorized keys via url.
+  authorized_key:
+    user: '{{ common_user }}'
+    state: present
+    key: '{{ common_key_url }}'
+
+- name: Setup user bashrc.
+  template:
+    src: bashrc.j2
+    dest: '/home/{{ common_user }}/.bashrc'
+    owner: '{{ common_user }}'
+    group: '{{ common_user }}'
